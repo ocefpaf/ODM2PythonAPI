@@ -2,30 +2,30 @@ language: python
 
 sudo: false
 
-services:
-  - mysql
-  - postgresql
-
-addons:
-  apt:
-    packages:
-      # FIXME: when activating the services above I don't think these are needed.
-      - odbcinst1debian2
-      - odbcinst
-      - tdsodbc
-      - e2fsprogs
-      # FIXME: the dependencies below can probably be replaced by conda.
-      - libc6
-      - freetds-dev
-      - freetds-bin
-      - unixodbc
-      - unixodbc-dev
-      - mysql-client
-      # FIXME: I don't see the need for these anywhere.
-      - cmake
-      - libproj-dev
-      - libgeos-dev
-      - libspatialite-dev
+# services:
+#   - mysql
+#   - postgresql
+#
+# addons:
+#   apt:
+#     packages:
+#       # FIXME: when activating the services above I don't think these are needed.
+#       - odbcinst1debian2
+#       - odbcinst
+#       - tdsodbc
+#       - e2fsprogs
+#       # FIXME: the dependencies below can probably be replaced by conda.
+#       - libc6
+#       - freetds-dev
+#       - freetds-bin
+#       - unixodbc
+#       - unixodbc-dev
+#       - mysql-client
+#       # FIXME: I don't see the need for these anywhere.
+#       - cmake
+#       - libproj-dev
+#       - libgeos-dev
+#       - libspatialite-dev
 
 matrix:
   fast_finish: true
@@ -42,10 +42,10 @@ matrix:
   - python: 3.6
     env: TEST_TARGET=default
 
-before_script:
-  - ./ci-helpers/mysql_setup.sh
-  - ./ci-helpers/postgres_setup.sh
-  - ./ci-helpers/travis/freetds.sh
+# before_script:
+#   - ./ci-helpers/mysql_setup.sh
+#   - ./ci-helpers/postgres_setup.sh
+#   - ./ci-helpers/travis/freetds.sh
 
 before_install:
   - wget http://bit.ly/miniconda -O miniconda.sh
